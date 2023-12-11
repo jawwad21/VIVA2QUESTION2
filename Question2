@@ -1,0 +1,48 @@
+package palindrome;
+
+import java.util.Scanner;
+
+/**
+ *
+ * @author Jawwad Ibne Kabir (S2197172) & Zannatul Ferdous (S2180662)
+ */
+public class Palindrome {
+
+    public static String removespecialcharacter(String userinput){
+        
+        return userinput.replaceAll("[^a-zA-Z0-9]", "");
+        
+    }
+    
+    public static boolean isPalindrome(String userinput){
+        
+        String cleaninput = removespecialcharacter(userinput);
+        
+        String reverse = new StringBuilder(cleaninput).reverse().toString().toLowerCase();
+        System.out.println("Reversed: "+"\""+reverse+"\"");
+        
+        return cleaninput.equalsIgnoreCase(reverse);
+    }
+    
+    public static void main(String[] args) {
+        
+        Scanner scanner = new Scanner (System.in);
+        
+        System.out.print("Enter a sentence/word/number: ");
+        
+        String userinput = scanner.nextLine();
+        
+        System.out.println("Original: "+userinput);
+        
+        boolean isPalindrome = isPalindrome(userinput);
+        
+        if(isPalindrome){
+            System.out.println("It's a palindrome");
+        }else{
+            System.out.println("It's not a palindrome. Please try again!");
+        }
+        
+        
+    }
+    
+}
